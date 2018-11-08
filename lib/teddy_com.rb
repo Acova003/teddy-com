@@ -1,6 +1,8 @@
-require "teddy_com/version"
-require "bundler"
+require 'pry'
+require 'colorize'
 
-module TeddyCom
-  # Your code goes here...
-end
+require_relative './teddy_com/version'
+require_relative './teddy_com/cli'
+require_relative './teddy_com/roster.txt'
+require_relative './teddy_com/receive-sms'
+require_relative './teddy_com/send-sms'

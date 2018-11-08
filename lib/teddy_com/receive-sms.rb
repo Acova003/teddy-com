@@ -1,0 +1,2 @@
+class TeddyCom::ReceiveSMS
+end
