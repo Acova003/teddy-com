@@ -3,6 +3,7 @@ require 'colorize'
 
 require_relative './teddy_com/version'
 require_relative './teddy_com/cli'
-require_relative './teddy_com/roster.txt'
+#require_relative './teddy_com/roster'
 require_relative './teddy_com/receive-sms'
 require_relative './teddy_com/send-sms'
+require_relative './secrets'

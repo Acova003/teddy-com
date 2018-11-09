@@ -7,24 +7,24 @@ class TeddyCom::CLI
   def welcome_banner
     puts ""
     puts ""
-    puts "                        Welcome to TeddyCom, the" + "Lambda".green + "Sigma" + "Gamma".red + "communications system"
+    puts "    Welcome to TeddyCom, the" + " Lambda ".green + "Sigma " + "Gamma ".red + "communications system"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts ""
     puts ""
   end
 
   def menu
-    puts "Which chapter officers would you like to contact? (Please type a value 1-15 or 'ALL' for all members)"
+    puts "Which chapter officers would you like to contact? Please type a value (1-15) or 'ALL' for all members."
     puts ""
-    puts "1. President"
-    puts "2. Vice President"
-    puts "3. Sergeant at Arms"
-    puts "4. Representative"
-    puts "5. Secretary"
-    puts "6. Treasurer"
-    puts "7. Historian"
-    puts "8. Commissioner of Scholarship"
-    puts "9. Commissioner of Philanthropy"
+    puts "1.  President"
+    puts "2.  Vice President"
+    puts "3.  Sergeant at Arms"
+    puts "4.  Representative"
+    puts "5.  Secretary"
+    puts "6.  Treasurer"
+    puts "7.  Historian"
+    puts "8.  Commissioner of Scholarship"
+    puts "9.  Commissioner of Philanthropy"
     puts "10. Commissioner of Alumnae Relations"
     puts "11. Commissioner of Fundraising"
     puts "12. Commissioner of Recruitment"
@@ -35,8 +35,8 @@ class TeddyCom::CLI
     puts '>'
     user_input = gets.strip.to_i
 
-    if user_input.between?(1,15)
-      SendSMS
+    if user_input.between?(1,15) || user_input == 'all'.upcase
+      TeddyCom::SendSMS
     else
       puts "Invalid input. Please choose a number (1-15) or 'All'".red
       input
@@ -60,6 +60,6 @@ class TeddyCom::CLI
   end
 
   def goodbye
-    puts "Goodbye"
+    puts "Goodbye, thank you for using TeddyCOM"
   end
 end
