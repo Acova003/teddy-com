@@ -1,13 +1,16 @@
-require 'rubygems'
 require 'twilio-ruby'
+require 'pry'
+#binding.pry
+  # Your Account Sid and Auth Token from twilio.com/console
+  require('dotenv').config();
+  console.log('Your environment variable TWILIO_ACCOUNT_SID has the value: ', process.env.TWILIO_ACCOUNT_SID);
 
-# Your Account Sid and Auth Token from twilio.com/console
-@client = Twilio::REST::Client.new(account_sid, auth_token)
-
-message = @client.messages.create(
-                             from: '+15103451027 ',
-                             body: 'Greetings! This is Twilio.',
-                             to: '+15105709666'
-                           )
-
-puts message.sid
+client = Twilio::REST::Client.new(
+  ENV['TWILIO_ACCOUNT_SID'],
+  ENV['TWILIO_AUTH_TOKEN']
+)
+client.messages.create(
+  from: ENV['TWILIO_PHONE_NUMBER'],
+  to: ENV['CELL_PHONE_NUMBER'],
+  body: 'Greetings! This is Twilio.'
+  )

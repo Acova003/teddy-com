@@ -1,4 +1,11 @@
 class TeddyCom::CLI
+
+  OFFICERS = {1 => "Presidents", 2 => "Vice Presidents", 3 => "Sergeant at Arms", 4 => "Representatives",
+    5 => "Secretaries", 6 => "Treasurers", 7 => "Historians", 8 => "Commissioners of Scholarship",
+  9 => "Commissioners of Philanthropy", 10 => "Commissioners of Alumnae Relations", 11 => "Commissioners of Fundraising",
+  12 => "Commissioners of Recruitment", 13 => "Commissioners of Expansion", 14 => "Commissioners of Publicity",
+  15 => "Commissioners of Multiculturalism"}
+
   def start
     welcome_banner
     menu
@@ -11,32 +18,26 @@ class TeddyCom::CLI
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts ""
     puts ""
+    sleep(2)
   end
 
   def menu
     puts "Which chapter officers would you like to contact? Please type a value (1-15) or 'ALL' for all members."
     puts ""
-    puts "1.  President"
-    puts "2.  Vice President"
-    puts "3.  Sergeant at Arms"
-    puts "4.  Representative"
-    puts "5.  Secretary"
-    puts "6.  Treasurer"
-    puts "7.  Historian"
-    puts "8.  Commissioner of Scholarship"
-    puts "9.  Commissioner of Philanthropy"
-    puts "10. Commissioner of Alumnae Relations"
-    puts "11. Commissioner of Fundraising"
-    puts "12. Commissioner of Recruitment"
-    puts "13. Commissioner of Expansion"
-    puts "14. Commissioner of Publicity"
-    puts "15. Commissioner of Multiculturalism"
-    puts ""
-    puts '>'
+    OFFICERS.each do |k, v|
+      puts "#{k}. " + "#{v}"
+    end
+    input
+  end
+  def input
+    puts ">"
     user_input = gets.strip.to_i
 
-    if user_input.between?(1,15) || user_input == 'all'.upcase
-      TeddyCom::SendSMS
+    if user_input.between?(1,15)
+      #TeddyCom::SendSMS
+      write_message
+    elsif user_input == 'all'.upcase
+
     else
       puts "Invalid input. Please choose a number (1-15) or 'All'".red
       input
@@ -47,15 +48,39 @@ class TeddyCom::CLI
   def continue?
     puts ""
     puts "Would you like to send another message? (Y/N)"
-    user_input = gets.chomp.upcase
-    if user_input == 'Y'
+    @user_input = gets.chomp.upcase
+    if @user_input == 'Y'
       menu
-    elsif user_input == 'N'
+    elsif @user_input == 'N'
       goodbye
     else
       puts ""
       puts "Invalid input".red
       continue?
+    end
+  end
+
+  def write_message
+    puts "What message would you like to send?"
+    ">"
+    message = gets.chomp
+    puts "-Type:"
+    puts "1. To send the message"
+    puts "2. To type message again"
+    puts "3. To start over"
+    confirmation = gets.chomp
+    case confirmation
+    when "1"
+      #if role_id == user_input, select phone number
+      #iterate through phone number and create a message for each
+      #TeddyCom::Message.sender == "+15103451027"
+      #TeddyCom::Message.recipient ==
+      #TeddyCom::Message.text == message
+      puts "Hello"
+      #TeddyCom::Message.new(+15103451027, )
+    when "2"
+      puts "goodbye"
+      #TeddyCom::Message
     end
   end
 
