@@ -34,10 +34,11 @@ class TeddyCom::CLI
     user_input = gets.strip.to_i
 
     if user_input.between?(1,15)
-      #TeddyCom::SendSMS
+      #Instantiate a new Message with user choice.
+      #Make request via TeddyCom::SendSMS
       write_message
     elsif user_input == 'all'.upcase
-
+      # create sql query selects all members' phone numbers
     else
       puts "Invalid input. Please choose a number (1-15) or 'All'".red
       input
