@@ -11,15 +11,28 @@ class TeddyCom::Message
   end
 
   def self.all
-    ALL
+    sql = <<-SQL
+      SELECT *
+      FROM members
+    SQL
+
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+    end
   end
 
-  def self.find(recipient, db)
-    phone = db.execute("SELECT phone FROM members WHERE role_id = #{recipient}")
-    make_pokemon = {id: id, name: name, type: type, db: db}
-    new_pokemon =  Message.new(make_pokemon)
+  def self.select_by_role_id(role_id)
+    sql = <<-SQL
+      SELECT phone
+      FROM members
+      WHERE role_id = ?
+      LIMIT 1
+    SQL
+
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end.first
   end
-  #binding.pry
 end
 
 #make send sms requests using each instance of message
