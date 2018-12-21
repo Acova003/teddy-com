@@ -1,14 +1,17 @@
-class TeddyCom::CLI
-  require 'twilio-ruby'
+require 'twilio-ruby'
+class TeddyCom::SendSMS
+  def initialize
+    @client = Twilio::REST::Client.new(
+      ENV['TWILIO_ACCOUNT_SID'],
+      ENV['TWILIO_AUTH_TOKEN']
+    )
+  end
 
-  client = Twilio::REST::Client.new(
-    ENV['TWILIO_ACCOUNT_SID'],
-    ENV['TWILIO_AUTH_TOKEN']
-  )
-
-  client.messages.create(
-    from: "[twilio_phone]",
-    to: "[test_phone]",
-    body: "You just sent an SMS from Ruby!"
-  )
+  def send
+    @client.messages.create(
+      from: ENV['TWILIO_PHONE_NUMBER'],
+      to: ENV['TEST_NUMBER'],
+      body: "You just sent an SMS from Ruby!"
+    )
+  end
 end

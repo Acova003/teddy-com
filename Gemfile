@@ -1,5 +1,6 @@
 gem 'sinatra'
 gem 'twilio-ruby'
+gem "dotenv"
 
 source "https://rubygems.org"
 
