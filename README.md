@@ -1,8 +1,9 @@
 # TeddyCom
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/teddy_com`. To experiment with that code, run `bin/console` for an interactive prompt.
+This command-line interface Ruby app is a one-way Twilio sms broadcast system for conferences or large events. Utilizing the Google Sheets API to use Google Sheets as the primary database of phone numbers, database accessibility becomes a breeze for small-medium organizations who already use Google Sheets for registration purposes. 
 
-TODO: Delete this and the text above, and describe your gem
+![alt text](https://drive.google.com/file/d/1zl6s3GNXoRbTi7s7Fyneg-nPNSA1ZRPL/view?usp=sharing)
+
 
 ## Installation
 
