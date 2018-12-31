@@ -1,2 +1,0 @@
-class TeddyCom::Message
-end

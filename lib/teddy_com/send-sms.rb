@@ -7,11 +7,13 @@ class TeddyCom::SendSMS
     )
   end
 
-  def send
-    @client.messages.create(
-      from: ENV['TWILIO_PHONE_NUMBER'],
-      to: ENV['TEST_NUMBER'],
-      body: "You just sent an SMS from Ruby!"
-    )
+  def send(numbers, message)
+    numbers.each do |num|
+      @client.messages.create(
+        from: ENV['TWILIO_PHONE_NUMBER'],
+        to: num,
+        body: message
+      )
+    end
   end
 end
