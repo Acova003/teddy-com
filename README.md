@@ -2,8 +2,7 @@
 
 This command-line interface Ruby app is a one-way Twilio sms broadcast system for conferences or large events. Utilizing the Google Sheets API to use Google Sheets as the primary database of phone numbers, database accessibility becomes a breeze for small-medium organizations who already use Google Sheets for registration purposes. 
 
-![alt text](https://drive.google.com/file/d/1zl6s3GNXoRbTi7s7Fyneg-nPNSA1ZRPL/view?usp=sharing)
-
+![](images/teddycom_gs_screenshot.jpg)
 
 ## Installation
 
